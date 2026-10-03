@@ -3,12 +3,18 @@ const db = require("./config/db");
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
+const goalRoutes = require("./routes/goalRoutes");
+const skillRoutes = require("./routes/skillRoutes");
+const roadmapRoutes = require("./routes/roadmapRoutes");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/goals", goalRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/skills", skillRoutes);
+app.use("/api/roadmap", roadmapRoutes);
 const PORT = 5000;
 
 app.get("/", (req, res) => {
